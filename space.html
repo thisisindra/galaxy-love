@@ -106,8 +106,8 @@
       .universe {
         position: absolute;
 
-        width: 50000px;
-        height: 50000px;
+        width: 12000px;
+        height: 12000px;
 
         background:
           radial-gradient(circle at center, rgba(255, 255, 255, 0.04), transparent 60%), radial-gradient(circle at 20% 30%, rgba(66, 95, 255, 0.2), transparent 30%),
@@ -350,8 +350,8 @@
 
       #photo-container {
         position: absolute;
-        width: 50000px;
-        height: 50000px;
+        width: 12000px;
+        height: 12000px;
       }
 
       .photo {
@@ -395,15 +395,15 @@
 
       @keyframes floatPhoto {
         0% {
-          transform: translateY(0px);
+          translate: 0 0;
         }
 
         50% {
-          transform: translateY(-18px);
+          translate: 0 -18px;
         }
 
         100% {
-          transform: translateY(0px);
+          translate: 0 0;
         }
       }
 
@@ -542,8 +542,8 @@
       let startY;
 
       // POSISI AWAL HP
-      let currentX = -7000;
-      let currentY = -7000;
+      let currentX = -500;
+      let currentY = -500;
 
       universe.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
@@ -634,11 +634,11 @@
       const images = ["dwi1.jpeg", "dwi2.jpeg", "dwi3.jpeg", "dwi4.jpeg", "dwi5.jpeg"];
 
       // SUPER BANYAK
-      const totalPhotos = 5000;
+      const totalPhotos = 500;
 
       // AREA SUPER BESAR
-      const areaWidth = 50000;
-      const areaHeight = 50000;
+      const areaWidth = 9000;
+      const areaHeight = 12000;
 
       for (let i = 0; i < totalPhotos; i++) {
         const photo = document.createElement("div");
@@ -652,10 +652,10 @@
         photo.appendChild(img);
 
         // POSISI RANDOM
-        const cols = 70;
+        const cols = 40;
 
-        const spacingX = 150;
-        const spacingY = 190;
+        const spacingX = 140;
+        const spacingY = 170;
 
         const row = Math.floor(i / cols);
         const col = i % cols;
@@ -664,9 +664,11 @@
 
         const randomOffsetY = Math.random() * 60 - 30;
 
-        const x = col * spacingX + randomOffsetX;
+        const startX = 500;
+        const startY = 500;
 
-        const y = row * spacingY + randomOffsetY;
+        const x = startX + col * spacingX + randomOffsetX;
+        const y = startY + row * spacingY + randomOffsetY;
 
         // ROTASI
         const rotate = Math.random() * 10 - 5;
@@ -680,7 +682,7 @@
 
         photo.style.top = `${y}px`;
 
-        photo.style.transform = `rotate(${rotate}deg)`;
+        photo.style.rotate = `${rotate}deg`;
 
         photo.style.animationDuration = `${duration}s`;
 
